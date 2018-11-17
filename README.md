@@ -15,7 +15,7 @@ at your hands. **Totally Native!**. No html or weird build tools needed. Just
 good old *JSON*.
 
 - [Jasonette Android](jasonette/mobile/android)
-- [Jasonette iOS](jasonette/mobile/iOS)
+- [Jasonette iOS](jasonette/mobile/ios)
 
 #### Web Version
 
