@@ -3,6 +3,14 @@
 *Choyke* is a Framework that uses [JSON](https://www.json.org/) as the main language
 to create *Android*, *iOS* and *Web* applications.
 
+## Releases and Branches
+
+- *master* branch contains the cutting edge code, may contain unknown bugs.
+- *stable* branch contains code that has been tested and ready for production use.
+
+Go to [Releases](https://github.com/choyke/framework/releases) to download the component
+you want to use.
+
 ## Components
 
 *Choyke* contains different components that you can use to build amazing apps.
