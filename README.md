@@ -14,15 +14,15 @@ building native mobile apps. With *Jasonette* you have the power of *JSON + Java
 at your hands. **Totally Native!**. No html or weird build tools needed. Just
 good old *JSON*.
 
-- [Jasonette Android](https://github.com/choyke/framework/jasonette/mobile/android)
-- [Jasonette iOS](https://github.com/choyke/framework/jasonette/mobile/iOS)
+- [Jasonette Android](jasonette/mobile/android)
+- [Jasonette iOS](jasonette/mobile/iOS)
 
 #### Web Version
 
 This component is a web implementation of *Jasonette*. Is meant to be used as a tool
 for prototyping *Jasonette* apps in a WYSIWYG Web environment.
 
-- [Jasonette Web](https://github.com/choyke/framework/jasonette/web)
+- [Jasonette Web](jasonette/web)
 
 ### Cell.js
 
@@ -30,7 +30,7 @@ A framework to create web apps. Forget about complex structures and step learnin
 other frameworks like *Vue.js* or *React* have. Simplify you life and get back to the 
 core unit, a *JSON Cell*.
 
-- [Cell.js](https://github.com/choyke/framework/celljs)
+- [Cell.js](celljs)
 
 ### ST.js
 
@@ -38,13 +38,13 @@ If you think *Jasonette* is Awesome, now you can create your own *JSON template*
 The power is in your hands and only your imagination is the limit. Go crazy and make
 out of this world tools!.
 
-- [ST.js](https://github.com/choyke/framework/stjs)
+- [ST.js](stjs)
 
 ### Docs
 
 Of course *Choyke* is full of documentation!.
 
-- [Docs](https://github.com/choyke/framework/docs)
+- [Docs](docs)
 
 
 ## Frequently Asked Questions (FAQ)
