@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # coding: utf-8
 import subprocess
+import os
 from os import environ
+
 
 token = environ["GHTOKEN"]
 
@@ -18,9 +20,12 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
+wd = os.getcwd()
+os.chdir("website")
 subprocess.check_call(["cd", "website"])
 subprocess.check_call(["mv", "*", ".."])
-subprocess.check_call(["cd", ".."])
+os.chdir(wd)
+
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 
