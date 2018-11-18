@@ -9,11 +9,19 @@ print("Detecting Changes")
 print("Deploying to Repos")
 
 print("Deploying Website")
-result = subprocess.check_output(["python", "scripts/cascades/website.py"]).decode()
-print("Result", result)
 
-subprocess.check_call(["git", "checkout", "master"])
-subprocess.check_call(["git", "stash"])
-subprocess.check_call(["git", "branch", "-D", "develop"])
+try:
+    result = subprocess.check_output(["python", "scripts/cascades/website.py"]).decode()
+    print("Result", result)
+except:
+    pass
+
+try:
+    subprocess.check_call(["git", "stash"])
+    subprocess.check_call(["git", "checkout", "master"])
+    subprocess.check_call(["git", "stash"])
+    subprocess.check_call(["git", "branch", "-D", "develop"])
+except:
+    pass
 
 print("Jobs Done")

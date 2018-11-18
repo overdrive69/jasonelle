@@ -24,6 +24,7 @@ except:
 
 
 subprocess.check_call(["rm", "-rf", "celljs"])
+subprocess.check_call(["rm", "-rf", "docs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
 subprocess.check_call(["rm", "-rf", "jasonette"])
 subprocess.check_call(["rm", "-rf", ".gitignore"])
