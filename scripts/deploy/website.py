@@ -3,7 +3,7 @@
 import subprocess
 import os
 from os import environ
-
+from distutils.dir_util import copy_tree
 
 token = environ["GHTOKEN"]
 
@@ -20,8 +20,9 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-wd = os.getcwd() + "/website"
-print(subprocess.check_output(["cp", "-r", ".??*", ".."], cwd=wd))
+dir_from = os.getcwd() + "/website"
+dir_to = os.getcwd()
+copy_tree(dir_from, dir_to)
 
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
