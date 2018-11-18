@@ -45,7 +45,7 @@ message =  "Deploy: " + str(time())
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", branch, "--force"])
+subprocess.check_call(["git", "push", "website", branch + ":develop", "--force"])
 
 # Build page
 subprocess.check_call(["scripts/generate-public.sh"])
