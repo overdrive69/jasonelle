@@ -20,7 +20,8 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-shutil.copytree("website", ".")
+wd = os.getcwd() + "/website"
+subprocess.check_call(["mv", "*", ".."], cwd=wd)
 
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
