@@ -7,6 +7,7 @@ from distutils.dir_util import copy_tree
 from time import time
 
 # Deploys the website directory to the website repo
+branch = "deploy-website"
 try:
     subprocess.check_call(
         [
@@ -18,9 +19,9 @@ except:
     pass
 
 try:
-    subprocess.check_call(["git", "checkout", "-b", "develop"])
+    subprocess.check_call(["git", "checkout", "-b", branch])
 except:
-    subprocess.check_call(["git", "checkout", "develop"])
+    subprocess.check_call(["git", "checkout", branch])
 
 
 subprocess.check_call(["rm", "-rf", "celljs"])
@@ -44,10 +45,10 @@ message =  "Deploy: " + str(time())
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", "develop", "--force"])
+subprocess.check_call(["git", "push", "website", branch, "--force"])
 
 # Build page
-subprocess.check_call(['scripts/generate-public.sh'])
+subprocess.check_call(["scripts/generate-public.sh"])
 
 subprocess.check_call(["rm", "-rf", "archetypes"])
 subprocess.check_call(["rm", "-rf", "content"])
@@ -58,6 +59,8 @@ subprocess.check_call(["rm", "-rf", "scripts"])
 subprocess.check_call(["rm", "-rf", "static"])
 subprocess.check_call(["rm", "-rf", "themes"])
 subprocess.check_call(["rm", "-rf", "config.toml"])
+subprocess.check_call(["rm", "-rf", ".gitignore"])
+subprocess.check_call(["rm", "-rf", ".travis.yml"])
 subprocess.check_call(["rm", "-rf", "docker-compose.yml"])
 
 dir_from = os.getcwd() + "/public"
@@ -68,10 +71,10 @@ copy_tree(dir_from, dir_to)
 subprocess.check_call(["rm", "-rf", "public"])
 subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", "develop:master", "--force"])
+subprocess.check_call(["git", "push", "website", branch + ":master", "--force"])
 
 subprocess.check_call(["git", "checkout", "master"])
 subprocess.check_call(["git", "stash"])
-subprocess.check_call(["git", "branch", "-D", "develop"])
+subprocess.check_call(["git", "branch", "-D", branch])
 
 print("Deployed Website")

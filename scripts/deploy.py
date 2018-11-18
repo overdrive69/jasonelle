@@ -20,7 +20,7 @@ try:
     subprocess.check_call(["git", "stash"])
     subprocess.check_call(["git", "checkout", "master"])
     subprocess.check_call(["git", "stash"])
-    subprocess.check_call(["git", "branch", "-D", "develop"])
+    subprocess.check_call(["git", "branch", "-D", "deploy"])
 except:
     pass
 
