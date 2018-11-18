@@ -22,8 +22,10 @@ subprocess.check_call(["rm", "-rf", "scripts"])
 
 wd = os.getcwd()
 os.chdir("website")
-subprocess.check_call(["mv", "*", ".."])
+print(os.getcwd())
+print(subprocess.check_output(["mv", "*", ".."]).decode())
 os.chdir(wd)
+print(wd)
 
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
