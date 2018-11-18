@@ -11,7 +11,7 @@ token = environ["GHTOKEN"]
 subprocess.check_call(
     [
         "git", "remote", "add", "website", 
-        "https://" + token + "@github.com/jasonelle/jasonelle.github.io.git"
+        "https://" + token + "%40github.com/jasonelle/jasonelle.github.io.git"
     ]
 )
 
