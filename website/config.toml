@@ -1,0 +1,11 @@
+baseURL = "jasonelle.github.io"
+languageCode = "en-us"
+title = "Jasonelle"
+theme = "arabica"
+author = "Jasonelle Team"
+paginate = 3
+
+[params]
+    description = "A new way of creating iOS, Android and Web Apps using JSON."
+    dateFormatToUse = "2006-01-02"
+    replaceGoogleFonts = "fonts.loli.net"
