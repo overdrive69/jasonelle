@@ -2,9 +2,6 @@
 # coding: utf-8
 import subprocess
 
-subprocess.call(["git", "config", "--global" , "user.email", "travis@travis-ci.org"])
-subprocess.call(["git", "config", "--global" , "user.name", "Travis CI"])
-
 print("Deployment Script")
 
 print("Detecting Changes")

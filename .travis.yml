@@ -3,5 +3,4 @@ python:
         - "3.6"
 cache: pip
 install: true
-script:
-        - python scripts/deploy.py
+script: true

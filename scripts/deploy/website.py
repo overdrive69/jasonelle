@@ -4,11 +4,7 @@ import subprocess
 import os
 from os import environ
 from distutils.dir_util import copy_tree
-
-skey = environ["SKEY"]
-
-subprocess.check_call(["ssh-agent", "-s"])
-subprocess.check_output(["ssh-add", "<", skey])
+from time import time
 
 # Deploys the website directory to the website repo
 subprocess.check_call(
@@ -36,7 +32,7 @@ copy_tree(dir_from, dir_to)
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 
-message =  "Travis build: " + environ["TRAVIS_BUILD_NUMBER"]
+message =  "Deploy: " + time()
 subprocess.check_call(["git", "commit", "-m", message])
 subprocess.check_call(["git", "push", "website", "develop", "--force"])
 subprocess.check_call(["git", "checkout", "master"])
