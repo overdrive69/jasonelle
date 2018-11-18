@@ -7,14 +7,22 @@ from distutils.dir_util import copy_tree
 from time import time
 
 # Deploys the website directory to the website repo
-subprocess.check_call(
-    [
-        "git", "remote", "add", "website", 
-        "git@github.com:jasonelle/jasonelle.github.io.git"
-    ]
-)
+try:
+    subprocess.check_call(
+        [
+            "git", "remote", "add", "website", 
+            "git@github.com:jasonelle/jasonelle.github.io.git"
+        ]
+    )
+except:
+    pass
 
-subprocess.check_call(["git", "checkout", "-b", "develop"])
+try:
+    subprocess.check_call(["git", "checkout", "-b", "develop"])
+except:
+    subprocess.check_call(["git", "checkout", "develop"])
+
+
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
 subprocess.check_call(["rm", "-rf", "jasonette"])
