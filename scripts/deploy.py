@@ -14,5 +14,6 @@ print("Result", result)
 
 subprocess.check_call(["git", "checkout", "master"])
 subprocess.check_call(["git", "stash"])
+subprocess.check_call(["git", "branch", "-D", "develop"])
 
 print("Jobs Done")
