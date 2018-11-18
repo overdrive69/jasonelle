@@ -20,7 +20,7 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-wd = os.getcwd() + "website"
+wd = os.getcwd() + "/website"
 print(subprocess.check_output(["mv", "*", ".."], cwd=wd))
 
 subprocess.check_call(["rm", "-rf", "website"])
