@@ -2,13 +2,24 @@
 # coding: utf-8
 import subprocess
 import os
+import urllib.parse
 from os import environ
 from distutils.dir_util import copy_tree
 
 token = environ["GHTOKEN"]
 
 # Deploys the website directory to the website repo
-subprocess.check_call(["git", "remote", "add", "website", "https://" + token + "@github.com/jasonelle/jasonelle.github.io.git", ">", "/dev/null", "2>&1"])
+subprocess.check_call(
+    [
+        "git", "remote", "add", "website", 
+        urllib.parse.urlencode(
+            "https://" + 
+            token + 
+            "@github.com/jasonelle/jasonelle.github.io.git"
+        )
+    ]
+)
+
 subprocess.check_call(["git", "checkout", "-b", "develop"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
