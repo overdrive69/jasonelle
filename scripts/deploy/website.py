@@ -22,7 +22,6 @@ subprocess.check_call(["rm", "-rf", "scripts"])
 
 wd = os.getcwd()
 os.chdir("website")
-subprocess.check_call(["cd", "website"])
 subprocess.check_call(["mv", "*", ".."])
 os.chdir(wd)
 
