@@ -11,7 +11,7 @@ try:
     subprocess.check_call(
         [
             "git", "remote", "add", "website", 
-            "git@github.com:jasonelle/jasonelle.github.io.git"
+            "https://github.com/jasonelle/jasonelle.github.io.git"
         ]
     )
 except:
