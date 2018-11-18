@@ -5,13 +5,16 @@ import os
 from os import environ
 from distutils.dir_util import copy_tree
 
-token = environ["GHTOKEN"]
+skey = environ["SKEY"]
+
+subprocess.check_call(["eval", '"$(ssh-agent -s)"'])
+subprocess.check_call(["ssh-add", "< " + skey])
 
 # Deploys the website directory to the website repo
 subprocess.check_call(
     [
         "git", "remote", "add", "website", 
-        "https://" + token + "%40github.com/jasonelle/jasonelle.github.io.git"
+        "git@github.com:jasonelle/jasonelle.github.io.git"
     ]
 )
 
@@ -35,7 +38,7 @@ subprocess.check_call(["git", "add", "."])
 
 message =  "Travis build: " + environ["TRAVIS_BUILD_NUMBER"]
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", "develop"])
+subprocess.check_call(["git", "push", "website", "develop", "--force"])
 subprocess.check_call(["git", "checkout", "master"])
 subprocess.check_call(["git", "branch", "-D", "develop"])
 
