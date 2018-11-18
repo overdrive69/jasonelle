@@ -40,9 +40,34 @@ copy_tree(dir_from, dir_to)
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 
+# Deploy to develop branch
 message =  "Deploy: " + str(time())
+
 subprocess.check_call(["git", "commit", "-m", message])
 subprocess.check_call(["git", "push", "website", "develop", "--force"])
+
+# Build page
+subprocess.check_call(['scripts/generate-public.sh'])
+
+subprocess.check_call(["rm", "-rf", "archetypes"])
+subprocess.check_call(["rm", "-rf", "content"])
+subprocess.check_call(["rm", "-rf", "data"])
+subprocess.check_call(["rm", "-rf", "layouts"])
+subprocess.check_call(["rm", "-rf", "resource"])
+subprocess.check_call(["rm", "-rf", "scripts"])
+subprocess.check_call(["rm", "-rf", "static"])
+subprocess.check_call(["rm", "-rf", "themes"])
+subprocess.check_call(["rm", "-rf", "config.toml"])
+subprocess.check_call(["rm", "-rf", "docker-compose.yml"])
+
+dir_from = os.getcwd() + "/public"
+dir_to = os.getcwd()
+copy_tree(dir_from, dir_to)
+
+subprocess.check_call(["rm", "-rf", "public"])
+subprocess.check_call(["git", "commit", "-m", message])
+subprocess.check_call(["git", "push", "website", "develop:master", "--force"])
+
 subprocess.check_call(["git", "checkout", "master"])
 subprocess.check_call(["git", "stash"])
 subprocess.check_call(["git", "branch", "-D", "develop"])
