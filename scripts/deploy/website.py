@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 import subprocess
-import os
+import shutil
 from os import environ
 
 
@@ -20,12 +20,7 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-wd = os.getcwd()
-os.chdir("website")
-print(os.getcwd())
-print(subprocess.check_output(["mv", "*", ".."]).decode())
-os.chdir(wd)
-print(wd)
+shutil.copytree("website", ".")
 
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
