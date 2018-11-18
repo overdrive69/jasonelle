@@ -5,10 +5,11 @@ import os
 from os import environ
 from distutils.dir_util import copy_tree
 
-token = environ["GHTOKEN"]
+user = environ["GH_USER"]
+pwd = environ["GH_PASS"]
 
 # Deploys the website directory to the website repo
-subprocess.check_call(["git", "remote", "add", "website", token + "@github.com:jasonelle/jasonelle.github.io.git"])
+subprocess.check_call(["git", "remote", "add", "website", user + ":" + pwd + "@github.com:jasonelle/jasonelle.github.io.git"])
 subprocess.check_call(["git", "checkout", "-b", "develop"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
