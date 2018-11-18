@@ -1,6 +1,6 @@
-# Choyke Framework
+# Jasonelle Framework
 
-*Choyke* is a Framework that uses [JSON](https://www.json.org/) as the main language
+*Jasonelle* is a Framework that uses [JSON](https://www.json.org/) as the main language
 to create *Android*, *iOS* and *Web* applications.
 
 ## Releases and Branches
@@ -8,12 +8,12 @@ to create *Android*, *iOS* and *Web* applications.
 - *master* branch contains the cutting edge code, may contain unknown bugs.
 - *stable* branch contains code that has been tested and ready for production use.
 
-Go to [Releases](https://github.com/choyke/framework/releases) to download the component
+Go to [Releases](https://github.com/jasonelle/framework/releases) to download the component
 you want to use.
 
 ## Components
 
-*Choyke* contains different components that you can use to build amazing apps.
+*Jasonelle* contains different components that you can use to build amazing apps.
 
 ### Jasonette
 
@@ -50,32 +50,24 @@ out of this world tools!.
 
 ### Docs
 
-Of course *Choyke* is full of documentation!.
+Of course *jasonelle* is full of documentation!.
 
 - [Docs](docs)
 
 
 ## Frequently Asked Questions (FAQ)
 
-### What is a Choyke (Ñandú)?
-
-![image](https://user-images.githubusercontent.com/292738/48664149-3a9b5180-ea79-11e8-938a-9ce3104fc8dd.png)
-
-You can know more about this awesome animal in the following links:
-
-- [Aves de Chile](http://www.avesdechile.cl/139.htm)
-- [Rhea](https://en.wikipedia.org/wiki/Rhea_(bird))
 
 ### What about the Original Jasonette?
 
-*Jasonette* is the framework on wich *Choyke* is based on. You can know more about
+*Jasonette* is the framework on wich *Jasonelle* is based on. You can know more about
 why we created this fork in the following [issue](https://github.com/Jasonette/Jasonette/issues/23).
 
 ### What about Jason App?
 
 It should be re-made and released soon.
 
-### What about jasonbase?
+### What about Jason Base?
 
 It would not be available if the servers or the domain shut downs. 
 We recommend moving your jsons to a server you own.
