@@ -7,7 +7,7 @@ from distutils.dir_util import copy_tree
 
 skey = environ["SKEY"]
 
-subprocess.check_call(["eval", '"$(ssh-agent -s)"'])
+subprocess.check_call(["ssh-agent", "-s"])
 subprocess.check_call(["ssh-add", "< " + skey])
 
 # Deploys the website directory to the website repo
