@@ -37,12 +37,11 @@ dir_from = os.getcwd() + "/website"
 dir_to = os.getcwd()
 copy_tree(dir_from, dir_to)
 
-subprocess.check_call(["rm", "-rf", "website"])
-subprocess.check_call(["git", "add", "."])
-
 # Deploy to develop branch
 message =  "Deploy: " + str(time())
 
+subprocess.check_call(["rm", "-rf", "website"])
+subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
 subprocess.check_call(["git", "push", "website", "develop", "--force"])
 
@@ -64,7 +63,9 @@ dir_from = os.getcwd() + "/public"
 dir_to = os.getcwd()
 copy_tree(dir_from, dir_to)
 
+# Deploy build to master branch
 subprocess.check_call(["rm", "-rf", "public"])
+subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
 subprocess.check_call(["git", "push", "website", "develop:master", "--force"])
 
