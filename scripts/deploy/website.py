@@ -9,7 +9,7 @@ user = environ["GH_USER"]
 pwd = environ["GH_PASS"]
 
 # Deploys the website directory to the website repo
-subprocess.check_call(["git", "remote", "add", "website", user + ":" + pwd + "@github.com:jasonelle/jasonelle.github.io.git"])
+subprocess.check_call(["git", "remote", "add", "website", "https://" + user + ":" + pwd + "@github.com:jasonelle/jasonelle.github.io.git"])
 subprocess.check_call(["git", "checkout", "-b", "develop"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
