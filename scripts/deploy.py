@@ -9,7 +9,10 @@ print("Detecting Changes")
 print("Deploying to Repos")
 
 print("Deploying Website")
-result = subprocess.check_output(["python", "scripts/deploy/website.py"]).decode()
+result = subprocess.check_output(["python", "scripts/cascades/website.py"]).decode()
 print("Result", result)
+
+subprocess.check_call(["git", "checkout", "master"])
+subprocess.check_call(["git", "stash"])
 
 print("Jobs Done")

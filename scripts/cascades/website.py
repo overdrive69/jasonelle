@@ -32,10 +32,11 @@ copy_tree(dir_from, dir_to)
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 
-message =  "Deploy: " + time()
+message =  "Deploy: " + str(time())
 subprocess.check_call(["git", "commit", "-m", message])
 subprocess.check_call(["git", "push", "website", "develop", "--force"])
 subprocess.check_call(["git", "checkout", "master"])
+subprocess.check_call(["git", "stash"])
 subprocess.check_call(["git", "branch", "-D", "develop"])
 
 print("Deployed Website")
