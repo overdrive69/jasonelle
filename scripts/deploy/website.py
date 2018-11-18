@@ -3,8 +3,10 @@
 import subprocess
 from os import environ
 
+token = environ["GHTOKEN"]
+
 # Deploys the website directory to the website repo
-subprocess.call(["git", "remote", "add", "website", "git@github.com:jasonelle/jasonelle.github.io.git"])
+subprocess.call(["git", "remote", "add", "website", token + "@github.com:jasonelle/jasonelle.github.io.git"])
 subprocess.call(["git", "checkout", "-b", "develop"])
 subprocess.call(["rm", "-rf", "celljs"])
 subprocess.call(["rm", "-rf", "stjs"])
