@@ -18,7 +18,9 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-subprocess.check_call(["mv", "website/*", "."])
+subprocess.check_call(["cd", "website"])
+subprocess.check_call(["mv", "*", ".."])
+subprocess.check_call(["cd", ".."])
 subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["git", "add", "."])
 
