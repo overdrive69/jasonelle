@@ -2,7 +2,6 @@
 # coding: utf-8
 import subprocess
 import os
-import urllib.parse
 from os import environ
 from distutils.dir_util import copy_tree
 
@@ -12,11 +11,7 @@ token = environ["GHTOKEN"]
 subprocess.check_call(
     [
         "git", "remote", "add", "website", 
-        urllib.parse.urlencode(
-            "https://" + 
-            token + 
-            "@github.com/jasonelle/jasonelle.github.io.git"
-        )
+        "https://" + token + "@github.com/jasonelle/jasonelle.github.io.git"
     ]
 )
 
