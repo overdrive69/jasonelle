@@ -16,9 +16,7 @@ subprocess.call(["rm", "-rf", "LICENSE"])
 subprocess.call(["rm", "-rf", "celljs"])
 subprocess.call(["rm", "-rf", "scripts"])
 
-subprocess.call(["cd", "website"])
-subprocess.call(["mv", "-R", "*", ".."])
-subprocess.call(["cd", ".."])
+subprocess.call(["mv", "-R", "website/*", ".."])
 subprocess.call(["rm", "-rf", "website"])
 subprocess.call(["git", "add", "."])
 
