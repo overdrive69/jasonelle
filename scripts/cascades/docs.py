@@ -2,6 +2,7 @@
 # coding: utf-8
 import subprocess
 import os
+import glob
 from os import environ
 from distutils.dir_util import copy_tree
 from time import time
@@ -64,10 +65,19 @@ print("Executing Build Command " + str(build_command))
 
 subprocess.check_call(build_command)
 
-subprocess.check_call(["rm", "-rf", "*.Rmd"])
-subprocess.check_call(["rm", "-rf", "*.yml"])
-subprocess.check_call(["rm", "-rf", "*.bib"])
-subprocess.check_call(["rm", "-rf", "*.tex"])
+# Remove src files
+for files in glob.glob("*.Rmd"):
+    os.remove(files)
+
+for files in glob.glob("*.yml"):
+    os.remove(files)
+
+for files in glob.glob("*.bib"):
+    os.remove(files)
+
+for files in glob.glob("*.tex"):
+    os.remove(files)
+
 subprocess.check_call(["rm", "-rf", "build.sh"])
 subprocess.check_call(["rm", "-rf", "./style.css"])
 
