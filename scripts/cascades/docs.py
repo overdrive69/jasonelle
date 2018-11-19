@@ -10,7 +10,7 @@ from time import time
 branch = "deploy-docs"
 repo = "docs"
 folder = "docs"
-build_command = ["build.sh"]
+build_command = ["./build.sh"]
 
 try:
     subprocess.check_call(
