@@ -16,6 +16,14 @@ try:
 except:
     pass
 
+print("Deploying Docs")
+
+try:
+    result = subprocess.check_output(["python", "scripts/cascades/docs.py"]).decode()
+    print("Result", result)
+except:
+    pass
+
 try:
     subprocess.check_call(["git", "stash"])
     subprocess.check_call(["git", "checkout", "master"])

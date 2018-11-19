@@ -6,13 +6,17 @@ from os import environ
 from distutils.dir_util import copy_tree
 from time import time
 
-# Deploys the website directory to the website repo
-branch = "deploy-website"
+# Deploys the docs directory to the docs repo
+branch = "deploy-docs"
+repo = "docs"
+folder = "docs"
+build_command = ["build.sh"]
+
 try:
     subprocess.check_call(
         [
-            "git", "remote", "add", "website", 
-            "https://github.com/jasonelle/jasonelle.github.io.git"
+            "git", "remote", "add", repo, 
+            "https://github.com/jasonelle/" + repo + ".git"
         ]
     )
 except:
@@ -25,7 +29,7 @@ except:
 
 
 subprocess.check_call(["rm", "-rf", "celljs"])
-subprocess.check_call(["rm", "-rf", "docs"])
+subprocess.check_call(["rm", "-rf", "website"])
 subprocess.check_call(["rm", "-rf", "stjs"])
 subprocess.check_call(["rm", "-rf", "jasonette"])
 subprocess.check_call(["rm", "-rf", ".gitignore"])
@@ -35,46 +39,49 @@ subprocess.check_call(["rm", "-rf", "LICENSE"])
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "scripts"])
 
-dir_from = os.getcwd() + "/website"
+dir_from = os.getcwd() + "/" + folder
 dir_to = os.getcwd()
 copy_tree(dir_from, dir_to)
 
 # Deploy to develop branch
 message =  "Deploy: " + str(time())
 
-subprocess.check_call(["rm", "-rf", "website"])
+subprocess.check_call(["rm", "-rf", folder])
 subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", branch + ":develop", "--force"])
+subprocess.check_call(["git", "push", repo, branch + ":develop", "--force"])
 
 # Build page
-subprocess.check_call(["scripts/build.sh"])
 
-subprocess.check_call(["rm", "-rf", "archetypes"])
-subprocess.check_call(["rm", "-rf", "content"])
-subprocess.check_call(["rm", "-rf", "data"])
-subprocess.check_call(["rm", "-rf", "layouts"])
-subprocess.check_call(["rm", "-rf", "resource"])
-subprocess.check_call(["rm", "-rf", "scripts"])
-subprocess.check_call(["rm", "-rf", "static"])
-subprocess.check_call(["rm", "-rf", "themes"])
-subprocess.check_call(["rm", "-rf", "config.toml"])
-subprocess.check_call(["rm", "-rf", ".gitignore"])
-subprocess.check_call(["rm", "-rf", ".travis.yml"])
-subprocess.check_call(["rm", "-rf", "docker-compose.yml"])
+dir_from = os.getcwd() + "/src"
+dir_to = os.getcwd()
+copy_tree(dir_from, dir_to)
 
-dir_from = os.getcwd() + "/public"
+subprocess.check_call(["rm", "-rf", "old"])
+subprocess.check_call(["rm", "-rf", "src"])
+
+subprocess.check_call(build_command)
+
+subprocess.check_call(["rm", "-rf", "*.Rmd"])
+subprocess.check_call(["rm", "-rf", "*.yml"])
+subprocess.check_call(["rm", "-rf", "*.bib"])
+subprocess.check_call(["rm", "-rf", "*.tex"])
+subprocess.check_call(["rm", "-rf", "build.sh"])
+subprocess.check_call(["rm", "-rf", "./style.css"])
+
+dir_from = os.getcwd() + "/_book"
 dir_to = os.getcwd()
 copy_tree(dir_from, dir_to)
 
 # Deploy build to master branch
-subprocess.check_call(["rm", "-rf", "public"])
+subprocess.check_call(["rm", "-rf", "_bookdown_files"])
+subprocess.check_call(["rm", "-rf", "_book"])
 subprocess.check_call(["git", "add", "."])
 subprocess.check_call(["git", "commit", "-m", message])
-subprocess.check_call(["git", "push", "website", branch + ":master", "--force"])
+subprocess.check_call(["git", "push", repo, branch + ":master", "--force"])
 
 subprocess.check_call(["git", "checkout", "master"])
 subprocess.check_call(["git", "stash"])
 subprocess.check_call(["git", "branch", "-D", branch])
 
-print("Deployed Website")
+print("Deployed Docs")
