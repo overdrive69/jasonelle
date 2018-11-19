@@ -60,6 +60,8 @@ copy_tree(dir_from, dir_to)
 subprocess.check_call(["rm", "-rf", "old"])
 subprocess.check_call(["rm", "-rf", "src"])
 
+print("Executing Build Command " + build_command)
+
 subprocess.check_call(build_command)
 
 subprocess.check_call(["rm", "-rf", "*.Rmd"])
