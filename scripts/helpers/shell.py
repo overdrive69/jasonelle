@@ -4,6 +4,7 @@
 import subprocess
 
 def call(params):
+    print("Calling ", params)
     return subprocess.check_output(params).decode()
 
 def python(params):
