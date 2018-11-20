@@ -1,6 +1,6 @@
 
-import .config
-import .shell
+import config
+import shell
 
 from time import time
 
