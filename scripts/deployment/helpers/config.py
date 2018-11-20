@@ -4,6 +4,6 @@ directories = ["celljs", "website", "stjs", "jasonette", "scripts", "docs"]
 files = [".gitignore", ".travis.yml", "README.md", "LICENSE"]
 
 cascades = {
-    "website" :  "scripts/cascades/website.py",
-    "docs" : "scripts/cascades/docs.py"
+    "website" :  "scripts/deployment/cascades/website.py",
+    "docs" : "scripts/deployment/cascades/docs.py"
 }

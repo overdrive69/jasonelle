@@ -7,15 +7,6 @@ from time import time
 def timestamp():
     return str(time())
 
-def deploy(name):
-    try:
-        params = [config.cascades[name]]
-        result = shell.py(params)
-        print("Result", result)
-    except:
-        print("Error")
-        pass
-
 def cleanup():
     try:
         shell.git_stash()
@@ -24,4 +15,14 @@ def cleanup():
         shell.git_hard_reset()
     except:
         print("Some step failed")
+        pass
+
+def deploy(name):
+    try:
+        params = [config.cascades[name]]
+        result = shell.py(params)
+        print("Result", result)
+    except:
+        print("Error")
+        cleanup()
         pass

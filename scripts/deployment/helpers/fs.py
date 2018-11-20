@@ -35,7 +35,7 @@ def rm_globs(globs):
 def rm_all_except(paths, name):
     for item in paths:
         if item == name:
-            continue
+        continue
         rm(item)
 
 def rm_all_in_config_except(name):
