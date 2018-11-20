@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 import subprocess
+from helpers import config, shell
 
 print("Deployment Script")
 
@@ -11,7 +12,7 @@ print("Deploying to Repos")
 print("Deploying Website")
 
 try:
-    result = subprocess.check_output(["python", "scripts/cascades/website.py"]).decode()
+    result = shell.python(config.cascades["website"])
     print("Result", result)
 except:
     pass
@@ -19,16 +20,15 @@ except:
 print("Deploying Docs")
 
 try:
-    result = subprocess.check_output(["python", "scripts/cascades/docs.py"]).decode()
+    result = shell.python(config.cascades["docs"])
     print("Result", result)
 except:
     pass
 
 try:
-    subprocess.check_call(["git", "stash"])
-    subprocess.check_call(["git", "checkout", "master"])
-    subprocess.check_call(["git", "stash"])
-    subprocess.check_call(["git", "branch", "-D", "deploy"])
+    shell.git_stash()
+    shell.git_checkout_master()
+    shell.clean()
 except:
     pass
 
