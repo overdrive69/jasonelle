@@ -77,7 +77,7 @@ params:
       job: Developer
       img: 2
     - name: Camilo C.
-      quote: Jasonelle brings me joy!. It's a wonderful an innovative way of crafting apps.
+      quote: Jasonelle brings me joy!. It's a wonderful and innovative way of crafting apps.
       job: Sofware Forgemaster
       img: 3
     - name: You
@@ -93,30 +93,3 @@ params:
       # Icons are from Font Awesome
       icon: github
     bulmalogo: true
-    product:
-    - text: Discover features
-      link: /
-    - text: Why choose our product?
-      link: /
-    - text: Compare features
-      link: /
-    - text: Our roadmap
-      link: /
-    - text: Request features
-      link: /
-    docs:
-    - text: Get started
-      link: /
-    - text: User guides
-      link: /
-    - text: Admin guide
-      link: /
-    - text: Developers
-      link: /
-    blogroll:
-    - text: Latest news
-      link: /
-    - text: Tech articles
-      link: /
-    - text: Video blog
-      link: /
