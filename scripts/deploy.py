@@ -1,41 +1,17 @@
 #!/usr/bin/env python3
 # coding: utf-8
 import subprocess
-from helpers import config, shell
+from helpers import config, shell, utils
 
 print("Deployment Script")
-
 print("Detecting Changes")
-
 print("Deploying to Repos")
 
 print("Deploying Website")
-
-try:
-    params = [config.cascades["website"]]
-    result = shell.py(params)
-    print("Result", result)
-except:
-    print("Error")
-    pass
+utils.deploy("website")
 
 print("Deploying Docs")
+utils.deploy("docs")
 
-try:
-    params = [config.cascades["docs"]]
-    result = shell.py(params)
-    print("Result", result)
-except:
-    print("Error")
-    pass
-
-try:
-    shell.git_stash()
-    shell.git_checkout_master()
-    shell.clean()
-    shell.git_hard_reset()
-except:
-    print("Some step failed")
-    pass
-
+utils.cleanup()
 print("Jobs Done")
