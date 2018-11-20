@@ -29,6 +29,7 @@ try:
     shell.git_stash()
     shell.git_checkout_master()
     shell.clean()
+    shell.git_hard_reset()
 except:
     pass
 

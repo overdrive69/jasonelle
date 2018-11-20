@@ -14,6 +14,10 @@ def git(params):
     params = ["git"] + params
     return call(params)
 
+def git_hard_reset():
+    params = ["reset", "HEAD", "--hard"]
+    return git(params)
+
 def git_stash():
     params = ["stash"]
     return git(params)
