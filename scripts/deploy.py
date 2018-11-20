@@ -12,7 +12,7 @@ print("Deploying to Repos")
 print("Deploying Website")
 
 try:
-    result = shell.python(config.cascades["website"])
+    result = shell.py(config.cascades["website"])
     print("Result", result)
 except:
     pass
@@ -20,7 +20,7 @@ except:
 print("Deploying Docs")
 
 try:
-    result = shell.python(config.cascades["docs"])
+    result = shell.py(config.cascades["docs"])
     print("Result", result)
 except:
     pass

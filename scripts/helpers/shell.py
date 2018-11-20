@@ -7,7 +7,7 @@ def call(params):
     print("Calling ", params)
     return subprocess.check_output(params).decode()
 
-def python(params):
+def py(params):
     params = ["python"] + params
     return call(params)
 
