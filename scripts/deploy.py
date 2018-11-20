@@ -12,17 +12,21 @@ print("Deploying to Repos")
 print("Deploying Website")
 
 try:
-    result = shell.py(config.cascades["website"])
+    params = [config.cascades["website"]]
+    result = shell.py(params)
     print("Result", result)
 except:
+    print("Error")
     pass
 
 print("Deploying Docs")
 
 try:
-    result = shell.py(config.cascades["docs"])
+    params = [config.cascades["docs"]]
+    result = shell.py(params)
     print("Result", result)
 except:
+    print("Error")
     pass
 
 try:
@@ -31,6 +35,7 @@ try:
     shell.clean()
     shell.git_hard_reset()
 except:
+    print("Some step failed")
     pass
 
 print("Jobs Done")
