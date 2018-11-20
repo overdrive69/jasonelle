@@ -49,7 +49,7 @@ def git_checkout_master():
 
 def git_checkout_new_branch(branch):
     params = ["checkout", "-b", branch]
-    return git(oarans)
+    return git(params)
 
 def git_branch_remove(branch):
     params = ["branch", "-D", branch]
@@ -58,5 +58,13 @@ def git_branch_remove(branch):
 def git_remote_add(name, url):
     params = ["remote", "add", name, url]
     return git(params)
+
+def git_branch_safe_create(branch):
+    try:
+        git_checkout_new_branch(branch)
+    except:
+        git_branch_remove(branch)
+        git_checkout_new_branch(branch)
+
 
 
