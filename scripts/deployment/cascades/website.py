@@ -27,13 +27,13 @@ except:
 subprocess.check_call(["rm", "-rf", "celljs"])
 subprocess.check_call(["rm", "-rf", "docs"])
 subprocess.check_call(["rm", "-rf", "stjs"])
+subprocess.check_call(["rm", "-rf", "scripts"])
 subprocess.check_call(["rm", "-rf", "jasonette"])
 subprocess.check_call(["rm", "-rf", ".gitignore"])
 subprocess.check_call(["rm", "-rf", ".travis.yml"])
 subprocess.check_call(["rm", "-rf", "README.md"])
 subprocess.check_call(["rm", "-rf", "LICENSE"])
-subprocess.check_call(["rm", "-rf", "celljs"])
-subprocess.check_call(["rm", "-rf", "scripts"])
+
 
 dir_from = os.getcwd() + "/website"
 dir_to = os.getcwd()
