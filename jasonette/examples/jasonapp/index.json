@@ -24,7 +24,7 @@
           "scan": {
             "type": "$href",
             "options": {
-              "url": "https://jasonbase.com/things/Jonr"
+              "url": "https://raw.githubusercontent.com/jasonelle/jasonelle/master/jasonette/examples/jasonapp/qr.json"
             },
             "success": {
               "type": "$set",
@@ -141,7 +141,7 @@
               "menu": {
                 "text": "Documentation",
                 "href": {
-                  "url": "https://jasonette.github.io/documentation",
+                  "url": "https://jasonelle.com/docs",
                   "view": "web"
                 }
               }
