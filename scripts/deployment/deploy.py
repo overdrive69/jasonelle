@@ -2,16 +2,18 @@
 # coding: utf-8
 import subprocess
 from helpers import config, shell, utils
+from ratlog import Log
 
-print("Deployment Script")
-print("Detecting Changes")
-print("Deploying to Repos")
+log = Log()
+log("Deployment Script")
+log("Detecting Changes")
+log("Deploying to Repos")
 
-print("Deploying Website")
+log("Deploying Website")
 utils.deploy("website")
 
-print("Deploying Docs")
+log("Deploying Docs")
 utils.deploy("docs")
 
 utils.cleanup()
-print("Jobs Done")
+log("Jobs Done")
