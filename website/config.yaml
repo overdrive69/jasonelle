@@ -21,13 +21,19 @@ params:
     # Footer logos (from /images/logos/clients/___.svg)
     clientlogos: []
   # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbarLogo:
+    link: "/"
+    image: favicon.png
   navbar:
   - title: Home
     url: /
+    icon: "home"
   - title: Docs
     url: /docs
+    icon: "pencil"
   - title: Github
     url: https://github.com/jasonelle/jasonelle
+    icon: "github"
   
   section1:
     title: Jasonelle Family
@@ -92,4 +98,40 @@ params:
     - link: https://github.com/jasonelle/jasonelle
       # Icons are from Font Awesome
       icon: github
-    bulmalogo: true
+    bulmalogo: false
+    followus:
+        title: "Support & Help"
+    quicklinks:
+      column1:
+        title: "Product"
+        links:
+        - text: Discover features
+          link: /
+        - text: Why choose our product?
+          link: /
+        - text: Compare features
+          link: /
+        - text: Our roadmap
+          link: /
+        - text: Request features
+          link: /
+      column2:
+        title: "Docs"
+        links:
+        - text: Get started
+          link: /
+        - text: User guides
+          link: /
+        - text: Admin guide
+          link: /
+        - text: Developers
+          link: /
+      column3:
+        title: "Blog"
+        links:
+        - text: Latest news
+          link: /
+        - text: Tech articles
+          link: /
+        - text: Video blog
+          link: /
