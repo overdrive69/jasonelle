@@ -1,4 +1,4 @@
 +++
 title = "Jasonelle"
-subtitle = "Where JSON is King"
+subtitle = "JSON For All"
 +++
