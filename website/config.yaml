@@ -71,7 +71,7 @@ params:
   section3:
     title: Deliver results
     subtitle: easier, faster, happier
-    image: demo-jasonette.gif
+    image: demo-jasonette-optimized.gif
     buttonText: Get started
     buttonLink: "/docs"
   section4:
