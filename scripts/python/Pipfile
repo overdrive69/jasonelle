@@ -5,8 +5,19 @@ name = "pypi"
 
 [packages]
 ratlog = "*"
+cleo = "*"
+pychalk = "*"
 
 [dev-packages]
+flake8 = "*"
+flake8-import-order = "*"
+flake8-bugbear = "*"
+pytest = "*"
+pydocstyle = "*"
+black = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
